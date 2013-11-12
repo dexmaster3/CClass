@@ -1,4 +1,7 @@
-# compiled
+## compiled
 
 *.out
 *~
+*.lock
+*.swp
+*.DS_Store
