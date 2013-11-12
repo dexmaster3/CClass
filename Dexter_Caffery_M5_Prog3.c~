@@ -1,0 +1,59 @@
+/*****************************************************
+* filename: Dexter_Caffery_M5_Prog3.c
+* Exercise: Module 5, Exercise 3
+* Name: Dexter Caffery
+* Date Created: November 6, 2013
+*
+* Description: This program has a user enter ten integers,
+*              then sorts them in acending order.
+******************************************************/
+
+#include <stdio.h>
+#define SIZE 10
+
+void sort(int * arr);
+int main(void)
+{
+    int vals[SIZE], num;
+
+    printf("Input ten numbers\n");
+    for (num = 0; num < SIZE; num++)
+    {
+        printf("Number %2d :  ", num + 1);
+        scanf("%d", &vals[num]);
+    }
+    printf("Your unsorted values are: ");
+    for (num = 0; num < SIZE; num++)
+    {
+        printf("%d ", vals[num]);
+    }
+    printf("\nWe will now sort them...\n");
+
+    sort(vals);
+
+    printf("Your SORTED values are: ");
+    for (num = 0; num < SIZE; num++)
+    {
+        printf("%d ", vals[num]);
+    }
+    printf("\n");
+
+    return 0;
+}
+void sort(int * arr)
+{
+    int num, test, change;
+
+    for (num = 1; num <= (SIZE - 1); num++)
+    {
+        for (test = 0; test <= (SIZE - 2); test++)
+        {
+            if (arr[test] > arr[test + 1])
+            {
+                change = arr[test];
+                arr[test] = arr[test + 1];
+                arr[test + 1] = change;
+            }
+        }
+    }
+}

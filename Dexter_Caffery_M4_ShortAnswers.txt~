@@ -1,0 +1,53 @@
+=========mod 4 discussion questions==============
+1.
+a: void function1(void);
+b: void function2(int argu1);
+c: int function3(int argu1, int argu2);
+d: int function4(void);
+
+2.
+double inch_in_miles(double miles);
+int absolute_val(signed int nmbr);
+char echo_initial(char mid_initial);
+float combined_price(float itemone, float itemtwo);
+void print_answers(int ans_one, int ans_two, int ans_three);
+
+
+=============short answer=======================
+
+1.
+There is no need, because the data is being put to its own output file, which will intrinsically include a EOF at the end of it. If you put the EOF character at the end of the output file, it will have two EOF characters.
+
+2.
+int magnitude(int magamount);
+
+3.
+double smallest(double sm_one, double sm_two);
+
+4.
+void prtbox(void);
+
+5.
+A formal argument are just a placeholder for any value that could be there when the function is actually called. The actual argument will be evaluated and used in place of the formal argument. The formal arguments are not being evaluated.
+
+6.
+A pointer is essentially a memory namespace, they refer to actual areas of memory storage. They are used for storing data between functions (persistent), because C cannot have a function return multiple values on its own (with return).
+
+7.
+int * size;
+
+8.
+float * water_temperature;
+
+9.
+global variables are defined outside of any functions (including main) and can be used and altered by any function at any time. This could be handy when you may need some running total throughout a program, and need any function called to be able to add to that same total.
+
+#include <stdio.h>
+int globvar1 = 400;
+int addglob(int num);
+int main(void)
+{
+    int extnum = 30;
+    addglob(
+}
+

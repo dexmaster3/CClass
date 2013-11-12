@@ -1,0 +1,34 @@
+/*****************************************************
+* filename: Dexter_Caffery_M4_Prog5.c
+* Exercise: Module 4, Exercise 5
+* Name: Dexter Caffery
+* Date Created: November 5, 2013
+*
+* Description: This program 
+******************************************************/
+
+#include <stdio.h>
+
+void max_value(int * x, int * y);
+int main(void)
+{
+    int num1, num2;
+    
+    printf("Enter two integers: ");
+    scanf("%d %d", &num1, &num2);
+    max_value(&num1, &num2);
+    printf("Both values are now: %d %d\n", num1, num2);
+
+    return 0;
+}
+void max_value(int * x, int * y)
+{
+    if (*x > *y) {
+        *y = *x;
+    }
+    else if (*y > *x) {
+        *x = *y;
+    }
+    else
+        printf("Both values are already equal!\n");
+}

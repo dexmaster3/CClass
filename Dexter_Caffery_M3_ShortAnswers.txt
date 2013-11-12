@@ -1,0 +1,76 @@
+==================DISCUSSION BOARD=======================
+1. Identify at least one problem you are now having getting your programs or compiler to work and how you solved the issue.
+
+I've ran into several problems as I go alone, one that took me a while to notice was not including an '&' symbol before a variable while using the scanf() function. My compiler would just say something like: format '%lu' expects argument of type 'long unsigned int *'.... which looks like it should match, it turns out this pops up if you forget to put & on your variable, like: scanf("%lu", &numvar)
+
+The prime number program took me a while to reason through, I'm not great at very math oriented type problems (even though this one is relatively simple) The text had an example, but I never used the divisor number (that increments) multiplied by itself, I'm still not completely sure why the text did. Example, they use:  for (div = 2; (div * div) <= num; div++)
+I used:  for (testnum = 2; testnum < num; ++testnum)   and it works perfectly
+
+2. Provide a good example (not from the book) for using a "for loop", "while loop", and "do while".
+
+a for loop is great when you need to reset a varaible, and increment the same amount during each iteration of the loop, this means any thing where the increment will make it eventually fail the test will work great with a for loop. Printing the characters in the alphabet would work well, because we need to start at "A" (variable reset) stay under "Z" (test) and iterate through each letter (increment)
+
+a while loop is great for a loop that may only be entered under a predefined variable condition; so if the user inputs something, there could be multiple different while loops that will only activate depending on what has been entered.
+
+the do while loop is great for entering a loop no matter what predefined inputs/variables there are, at least once. Then the loop can continuously run until something changes (possibly user input). This could be great for a password input prompt, it will always prompt the user first, and will repeat until the test condition is not met.
+
+3. Create a programming application that would use a switch statement.
+
+It seems like this would be great for making an electronic multiple choice test. It would be easily readable, modifiable, and changeable. Each case (depending on user input) could tell you the real answer, and maybe give an explanation why some people choose the given case.
+
+=============SHORT ANSWER QUESTIONS=========================
+1.
+a.   a = b
+b.   I != J
+c.   (m * m) < (n * 5)
+d.   (x > 5 || y < 10)
+e.   A >= 0 && B <= 5
+
+2.
+int num = 20;
+while (num >= 0)
+{
+    printf("num var is: %d\n", num);
+    num--;
+}
+
+3.
+for (num = 1; num <= 10; num++)
+    printf("num is: %d\n", num);
+
+4.
+if (tot_hrs <= 40) {
+    gross = rate_pr_hr * tot_hrs;
+    }
+if (tot_hrs > 40) {
+    gross = (rate_pr_hr * 40) + (rate_pr_hr * 1.5 * (tot_hrs - 40))
+    }
+
+5.
+gross = (tot_hrs <= 40) ? (gross = rate_pr_hr * tot_hrs) : ((rate_pr_hr * 40) + (rate_pr_hr * 1.5 * (tot_hrs - 40)));
+
+6.
+    float gross;
+    float tot_hrs;
+    int rate_pr_hr = 10;
+    int choice = 0;
+
+    printf("Enter total hours\n");
+    scanf("%f", &tot_hrs);
+    choice = tot_hrs > 40;
+    switch (choice) {
+    case 1:
+        gross = (rate_pr_hr * 40) + (rate_pr_hr * 1.5 * (tot_hrs - 40));
+        break;
+    case 0:
+        gross = rate_pr_hr * tot_hrs;
+        break;
+    default:
+        printf("Error default");
+    }
+    printf("pay is: %0.2f\n", gross);
+
+7.
+a.  true
+b.  true    //anything except zero is true
+c.  false   // 'x' char = decimal 88

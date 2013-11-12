@@ -1,0 +1,16 @@
+1. Dennis Richie created the C language while working at Bell Labs in ~1972.
+
+2. Every C program must contain a main() function which is executed when the program is run.
+
+3. int and static are the 2 C keywords out of these.
+
+4.
+#include <stdio.h>
+int main(void)
+{
+    float x;
+    int z;
+    x = 10.5;
+    z = 21000;
+    printf("x = %f z = %d" x, z);
+}
