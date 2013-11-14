@@ -1,0 +1,104 @@
+1. An array can be referenced directly, which means it can be changed and used within a function, a pointer is simple a reference to where variable is, and needs to be put into a regular variable to be used.
+
+2. A great benefit of using a large program with multiple files would be organization, it becomes impractical to maintain one gigantic file. Also, you could have a much larger program across multiple files, because there is a maximum file size on most filesystems (4GB on fat32?).
+
+3. A potential problem with a large program and multiple files would be keeping track of file references; when you make one change to a file used by multiple other files, then it could effect each of them in an unintended way.
+
+
+==========short answers================
+1.
+a: long amounts[8];
+
+b: float net_inc[12];
+
+c: int daily_tot[12];
+
+d: char n1[50], n2[50], n3[50]...;
+   char * names[12] = {n1, n2, n3...};
+
+2.
+a: invalid
+b: invalid
+c: valid
+d: invalid
+e: valid
+
+3.
+#include <stdio.h>
+char * strcpy(char * s1, const char * s2);
+int main(void)
+{
+    char name1[10] = "my name";
+    char place1[10];
+    
+    strcpy(place1, name1);
+    printf("place1= %s\n", place1);
+    return 0;
+}
+char * strcpy(char * s1, const char * s2)
+{ 
+    char * hold = s1;     //This was much less straightforward than the array style of the problem
+    while (*s2)
+    {
+        *s1++ = *s2++;    //because it has to return a pointer also
+    }
+    *s1 = 0;
+    return hold;
+}
+
+4.
+#include <stdio.h>
+void strcpyarray(char final[], char source[]);
+int main(void)
+{
+    char name1[10] = "my name";
+    char place1[10];
+    
+    strcpyarray(place1, name1);
+    printf("place1= %s\n", place1);
+    return 0;
+}
+void strcpyarray(char final[], char source[])
+{
+    int num;
+    
+    for (num = 0; source[num] != 0; num++)
+    {
+        final[num] = source[num];
+    }
+}
+
+
+5.
+
+int twostrlen(char * arr1[10], size_t * arr2[10])
+(returns int of the length, it could use a pointer if it needs another return)
+
+6.
+
+void shift(char * item)
+{
+    int x;
+    char new[40];
+    if ((item[0] >= 97) && (item[0] <= 122))
+    {
+        for (x = 0; x <= strlen(item); x++)
+        {
+            if ((item[x] >= 65) && (item[x] <= 90))
+                new[x] = item[x] - 'A' + 'a';
+            else
+                new[x] = item[x];
+        }
+    }
+    else if ((item[0] >= 65) && (item[0] <= 90))
+    {
+        for (x = 0; x <= strlen(item); x++)
+        {
+            if ((item[x] >= 97) && (item[x] <= 122))
+                new[x] = item[x] - 'a' + 'A';
+            else
+                new[x] = item[x];
+        }
+    }
+    printf("New item is = %s\n", new);
+}
